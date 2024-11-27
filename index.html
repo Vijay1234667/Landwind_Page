@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"  maximum-scale=1.0, user-scalable=no />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"  />
     <title>Landwind page</title>
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="./fontawesome-free-6.5.1-web/fontawesome-free-6.5.1-web/css/all.min.css" />
@@ -518,18 +518,16 @@
     <script src="./fontawesome-free-6.5.1-web/fontawesome-free-6.5.1-web/js/all.min.js"></script>
 
     <script>
-        // JavaScript to disable the link dynamically for mobile devices
-        const link = document.getElementById('link');
-        
+        // Check if the site is being accessed from a mobile device
         function isMobileDevice() {
-          return window.innerWidth <= 768; // You can customize the breakpoint
+          return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
         }
-        
-        if (isMobileDevice()) {
-          link.addEventListener('click', function (event) {
-            event.preventDefault(); // Disable the link functionality
-            alert('This link is only available on desktop devices.');
-          });
+      
+        // Redirect or adjust styles for mobile devices
+        if (isMobileDevice() && window.innerWidth > 768) {
+          alert("Please disable desktop mode in your browser for a better experience.");
+          // Optionally, redirect to a dedicated mobile site
+          // window.location.href = "https://m.example.com";
         }
       </script>
 </body>
